@@ -17,13 +17,6 @@ const movies=[
     }
 ]
 
-server.use(express.json());
-
-// server.use((req,res,next)=>{
-//     console.log("iam a middle ware ");
-//     next();
-// });
-
 server.get('/',(request,response)=>{
     response.send("Get method in movies");
 });
@@ -53,6 +46,6 @@ server.delete('/movies',(req,res)=>{
 
 
 
-server.listen(4000,()=>{
-    console.log("Server is running in port 4000 successfully")
+server.listen(7000,()=>{
+    console.log("Server is running in port 7000 successfully")
 });
