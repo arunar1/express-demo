@@ -1,6 +1,19 @@
 const express=require('express')
+const product=require('./routes/product')
 
-const server=express();
+
+const app=express();
+
+ 
+
+app.use('/product',product)
+
+app.post('/create-user',(req,res)=>{
+    res.send("Create user")
+})
+
+
+
 
 const movies=[
     {
@@ -17,11 +30,11 @@ const movies=[
     }
 ]
 
-server.get('/',(request,response)=>{
+app.get('/',(request,response)=>{
     response.send("Get method in movies");
 });
 
-server.get('/movies',(req,res)=>{
+app.get('/movies',(req,res)=>{
     res.send({
         message1:'here are your movies my friend',
         data1:movies
@@ -29,13 +42,13 @@ server.get('/movies',(req,res)=>{
 });
 
 
-server.post("/movies",(req,res)=>{
+app.post("/movies",(req,res)=>{
     movies.push(req.body);
     res.send('we have a new movie '+ req.body.name);
 });
 
 
-server.delete('/movies',(req,res)=>{
+app.delete('/movies',(req,res)=>{
     const id=req.query.id;
     console.log(id);
     const index=movies.findIndex((movie)=>movie.id===parseInt(id));
@@ -45,7 +58,6 @@ server.delete('/movies',(req,res)=>{
 
 
 
-
-server.listen(7000,()=>{
+app.listen(7000,()=>{
     console.log("Server is running in port 7000 successfully")
 });
