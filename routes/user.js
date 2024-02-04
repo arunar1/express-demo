@@ -10,4 +10,7 @@ router.get('/user-details/:id',(req,res)=>{
     res.send("user details " + req.params.id);
 })
 
-module.exports =router;
+router.get('/userspecific:key([a-zA-Z]{5})',(req,res)=>{
+    res.send("The specific result"+req.params.key)
+})
+module.exports =router; 
