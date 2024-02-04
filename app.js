@@ -1,6 +1,6 @@
 const express=require('express')
 const product=require('./routes/product')
-
+const user=require('./routes/user')
 
 const app=express();
 
@@ -8,9 +8,14 @@ const app=express();
 
 app.use('/product',product)
 
+app.use('/user',user)
+
+
 app.post('/create-user',(req,res)=>{
     res.send("Create user")
 })
+
+
 
 
 
