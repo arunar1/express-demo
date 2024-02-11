@@ -3,6 +3,8 @@ const product=require('./routes/product')
 const user=require('./routes/user')
 const app=express();
 
+var mongoose=require('mongoose')
+
  
 
 app.use('/product',product)
