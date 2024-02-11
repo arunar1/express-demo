@@ -5,7 +5,16 @@ const app=express();
 
 var mongoose=require('mongoose')
 
+var dbURL=require('./properties').DB_URL
  
+mongoose.connect(dbURL)
+
+mongoose.connection.on("connected",()=>{
+    console.log("Connected to mongodb")
+})
+
+
+
 
 app.use('/product',product)
 app.use('/user',user)
